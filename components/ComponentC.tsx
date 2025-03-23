@@ -6,7 +6,7 @@ export const ComponentC: React.FC = () => {
   return (
     <>
       <h3>Component C</h3>
-      <button onClick={() => context?.dispatch({ name: "increment" })}>Incrememnt</button>
+      <button onClick={() => context?.dispatch({ name: "increment" })}>Increment</button>
       <button onClick={() => context?.dispatch({ name: "decrement" })}>Decrement</button>
     </>
   );
