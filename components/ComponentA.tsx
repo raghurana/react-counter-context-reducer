@@ -1,12 +1,10 @@
 import "./ComponentA.css";
 import { ComponentB } from "./ComponentB";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { AppCounterContext } from "../contexts";
 
 export const ComponentA: React.FC = () => {
   const context = useContext(AppCounterContext);
-  const [step, setStep] = useState(context?.state.step);
-
   return (
     <div className="main">
       <h1>Component A</h1>
@@ -16,12 +14,8 @@ export const ComponentA: React.FC = () => {
           <input
             id="step"
             type="text"
-            value={step}
-            onChange={(e) => {
-              const newStep = Number(e.target.value);
-              context?.dispatch({ name: "setStep", payload: { newStep } });
-              setStep(newStep);
-            }}
+            value={context?.state.step}
+            onChange={(e) => context?.dispatch({ name: "setStep", payload: { newStep: Number(e.target.value) } })}
           />
         </div>
 
